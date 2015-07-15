@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.blackboard.com/bb-manifest-plugin"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="https://bbprepo.blackboard.com/content/repositories/releases/blackboard/platform/bb-manifest-plugin/9.1.201410.160373/bb-manifest-plugin-9.1.201410.160373.xsd">
+  <plugin>
+
+    <name value="b2.name" />
+    <handle value="schema-sample" />
+    <description value="b2.description" />
+    <default-locale value="en_US" />
+
+    <version value="1.0" />
+    <requires>
+      <bbversion value="9.1.201410.160373" />
+    </requires>
+
+    <vendor>
+      <id value="bbdn" />
+      <name value="Blackboard Developer Network" />
+      <url value="http://developer.blackboard.com/" />
+      <description value="Blackboard Developer Network" />
+    </vendor>
+
+
+    <http-actions>
+      <config value="properties"/>
+    </http-actions>
+
+    <application-defs>
+      <application handle="schema-app" type="shared" use-ssl="false" 
+                   name="app1.name" can-allow-guest="false">
+        <description lang="en_US"></description>
+        <links>
+          <link>
+            <type value="system_tool"/>
+            <name value="tool1.name"/>
+            <url value="properties" />
+            <description value="tool1.description" />
+          </link>
+        </links>
+      </application>
+    </application-defs>
+
+    
+    <schema-dirs>
+      <schema-dir dir-name="schema" />
+    </schema-dirs>
+
+	  <permissions>
+    		<permission type="attribute" name="user.*" actions="get,set" />
+      		<permission type="attribute" name="user.authinfo" actions="get,set" />
+			<permission type="attribute" name="user.personalinfo" actions="get,set" />			
+		</permissions>
+
+  </plugin>
+</manifest>

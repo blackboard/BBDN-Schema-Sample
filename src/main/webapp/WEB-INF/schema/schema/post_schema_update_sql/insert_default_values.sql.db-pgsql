@@ -1,0 +1,20 @@
+-- Populates the prefs table with default values if it has not been previously populated.
+--
+BEGIN;
+    INSERT INTO bbdn_props (
+		pk1,
+		props_enabled_ind,  
+        props_msg,
+        props_status
+	)
+	SELECT 
+		nextval('bbdn_props_SEQ'),
+		'N', 
+        'Place you message text here.',
+        '0'
+	WHERE 
+    	NOT EXISTS (
+			SELECT * FROM bbdn_props
+		);
+    COMMIT;
+END;

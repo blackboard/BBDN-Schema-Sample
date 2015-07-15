@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.blackboard.com/bb-schema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://bbprepo.blackboard.com/content/repositories/releases/blackboard/platform/bb-schema-xsd/9.1.201410.160373/bb-schema-xsd-9.1.201410.160373.xsd"
+		name="bbdn-sample-schema" license="Course Delivery">
+  <comment>This schema contains tables related to the BBDN-Sample-Schema.</comment>
+
+  <table name="bbdn_props">
+  	<comment>This table stores the global settings for the Schema Sample Building Block</comment>
+    
+    <column name="pk1" data-type="int" nullable="false" identity="true" comment="This is the surrogate primary key for the table." />
+
+    <column name="props_enabled_ind" data-type="CHAR(1)" nullable="false" comment="Are tools enabled?" >
+    	<value-constraint name="bbdn_props_crs_i1">
+		    <accepted-value value="Y"/>
+		    <accepted-value value="N"/>
+		</value-constraint>
+    </column>
+    
+    <column name="props_msg" data-type="VARCHAR(256)" nullable="true" comment="Default Message"/>
+    
+  	<column name="props_status" data-type="int" nullable="false" comment="0 = pending, 1 = approved, 2 = denied" >
+    	<value-constraint name="bbdn_tool_status_i1">
+		    <accepted-value value="0"/>
+		    <accepted-value value="1"/>
+		    <accepted-value value="2"/>
+		</value-constraint>
+	</column>
+		
+    <column name="props_user_id" data-type="int" nullable="true" comment="Reference to the user table in Learn to keep track of who made the last change." />
+    
+    <primary-key name="bbdn_props_pk" comment="This is the name of primary key constraint on column settings_id.">
+      <columnref name="pk1" />
+    </primary-key>
+  
+    <foreign-key name="bbdn_props_fk2" reference-table="users" on-delete="cascade" comment="This is a foreign key referencing a primary key in the standard Blackboard USERS table, referential action cascade on delete (cascade) - all relevant entries will be deleted if the user is deleted from the system.">
+      <columnref name="props_user_id" />
+    </foreign-key>
+  
+  </table>
+  
+  <post-schema-update>
+        <sql-script name="insert_default_values.sql" comment="Populate global settings with secure defaults if not currently populated with data."/>
+  </post-schema-update>
+  
+</schema>

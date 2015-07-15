@@ -1,0 +1,16 @@
+-- Populates the prefs table with default values if it has not been previously populated.
+--
+IF (SELECT COUNT(*) FROM bbdn_props) = 0
+BEGIN
+    INSERT INTO bbdn_props (
+		props_enabled_ind,  
+        props_msg,
+        props_status
+        )  
+    Values (  
+        'N', 
+        'Place you message text here.',
+        '0'
+     );
+commit;
+END;

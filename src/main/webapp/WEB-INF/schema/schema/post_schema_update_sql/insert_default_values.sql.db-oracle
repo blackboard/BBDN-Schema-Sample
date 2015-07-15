@@ -1,0 +1,24 @@
+-- Populates the prefs table with default values if it has not been previously populated.
+--
+DECLARE
+   v_count integer;
+BEGIN
+  select count(*) into v_count from bbdn_props;
+  if ( v_count = 0 ) then
+    INSERT INTO bbdn_props (
+    	pk1,
+		props_enabled_ind,  
+        props_msg,
+        props_status
+        )
+    VALUES (  
+		bbdn_props_SEQ.NEXTVAL,
+        'N', 
+        'Place you message text here.',
+        '0'
+    );
+    COMMIT;
+    
+    END IF;
+END;
+
