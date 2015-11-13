@@ -33,7 +33,7 @@
       <columnref name="pk1" />
     </primary-key>
   
-    <foreign-key name="bbdn_props_fk2" reference-table="users" on-delete="cascade" comment="This is a foreign key referencing a primary key in the standard Blackboard USERS table, referential action cascade on delete (cascade) - all relevant entries will be deleted if the user is deleted from the system.">
+    <foreign-key name="bbdn_props_fk2" reference-table="users" on-delete="none" comment="This is a foreign key referencing a primary key in the standard Blackboard USERS table, referential action cascade on delete (cascade) - all relevant entries will be deleted if the user is deleted from the system.">
       <columnref name="props_user_id" />
     </foreign-key>
   
