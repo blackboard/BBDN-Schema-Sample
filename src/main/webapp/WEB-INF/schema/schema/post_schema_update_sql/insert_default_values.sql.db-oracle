@@ -9,13 +9,15 @@ BEGIN
     	pk1,
 		props_enabled_ind,  
         props_msg,
-        props_status
+        props_status,
+        props_user_id
         )
     VALUES (  
 		bbdn_props_SEQ.NEXTVAL,
         'N', 
-        'Place you message text here.',
-        '0'
+        'Place your message text here.',
+        '0',
+        '1'
     );
     COMMIT;
     

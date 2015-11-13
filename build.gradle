@@ -10,9 +10,7 @@ version getB2Version()
 project.ext {
   learnVersion = "9.1.201410.160373"
   springVersion = "3.1.1.RELEASE"
-  hibernateVersion = "4.1.10.Final"
-  deployServer = "localhost:9876"
-  deployInstance = "BBLEARN"
+  hibernateVersion = "4.3.11.Final"
 }
 
 String getB2Version() {
@@ -39,7 +37,7 @@ dependencies {
   providedCompile( "blackboard.platform:bb-cms-admin:$ext.learnVersion" ) { transitive = false }
   providedCompile( "blackboard.platform:bb-taglibs:$ext.learnVersion" ) { transitive = false }
 
-  compile( "blackboard.platform:bb-spring-webapi:10.1" ) { transitive = false }
+  compile( "blackboard.platform:bb-spring-webapi:10.5" ) { transitive = false }
 
   compile "org.springframework:spring-aop:$ext.springVersion",
           "org.springframework:spring-asm:$ext.springVersion",
@@ -75,9 +73,8 @@ dependencies {
 // Add a task to deploy a B2 using starting block
 task deployB2( dependsOn: "war" ) << {
       ant.taskdef( name: "b2deploy", classname: "org.oscelot.ant.B2DeployTask", classpath: project.configurations.buildUtils.asPath )
-      ant.b2deploy( localfilepath: project.war.archivePath, host: project.ext.deployServer, courseorgavailable: 'true', clean: 'true', webappName: 'bb-starting-block-' + project.ext.deployInstance )
+      ant.b2deploy( localfilepath: project.war.archivePath, host: System.getProperty("server"), courseorgavailable: 'true', clean: 'true' )
 }
-
 task wrapper(type: Wrapper) {
   gradleVersion = '1.6'
 }

@@ -16,7 +16,7 @@
         title="Schema Sample Settings"
         ctxId="ctx"
         entitlement='system.admin.VIEW'
-        navItem="bbdn-sample-schema-app-nav-1">
+        navItem="bbdn-schema-app-nav-1">
 
         <bbNG:pageHeader 
         	instructions="Manage the Properties for the sample schema building block">
@@ -27,10 +27,10 @@
                     Schema Sample Settings
             </bbNG:pageTitleBar>
             
-        </bbNG:pageHeader>
+        </bbNG:pageHeader> 
         
         <bbNG:form action="saveProperties" method="POST" isSecure="${ true }" nonceId="/saveProperties">
-        	<input type="hidden" name="user_id" value="<%=ctx.getUserId%>" />
+        	<input type="hidden" name="user_id" value="<%=ctx.getUserId()%>" />
         
         	<bbNG:dataCollection>
         		

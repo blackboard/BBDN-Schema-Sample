@@ -14,6 +14,18 @@ public class Properties  extends AbstractIdentifiable {
 		   public DataType getDataType() {
 				return DATA_TYPE;
 		   }
+		   
+		   /*
+		    * BBLEARN-# \d public.bbdn_props
+               Table "public.bbdn_props"
+				      Column       |          Type          | Modifiers 
+				-------------------+------------------------+-----------
+				 pk1               | integer                | not null
+				 props_enabled_ind | character(1)           | not null
+				 props_msg         | character varying(256) | 
+				 props_status      | integer                | not null
+				 props_user_id     | integer                | 
+		    */
 
 		   @PrimaryKey
 		   private int pk1;

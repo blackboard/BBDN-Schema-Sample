@@ -40,7 +40,7 @@
 	<property name="dataSource" ref="hibernateDataSource" />
 	<property name="annotatedClasses">
 		<list>
-			<value>bbdn.sample.schema.beans.Properties</value>
+			<value>bbdn.sample.schema.Properties</value>
 		</list>
 	</property>
   </bean>

@@ -5,13 +5,15 @@ BEGIN;
 		pk1,
 		props_enabled_ind,  
         props_msg,
-        props_status
+        props_status,
+        props_user_id
 	)
 	SELECT 
 		nextval('bbdn_props_SEQ'),
 		'N', 
-        'Place you message text here.',
-        '0'
+        'Place your message text here.',
+        '0',
+        '1'
 	WHERE 
     	NOT EXISTS (
 			SELECT * FROM bbdn_props
