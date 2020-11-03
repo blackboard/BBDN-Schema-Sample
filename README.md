@@ -1,14 +1,17 @@
 # BBDN-Schema-Sample
+
+** This project is no longer maintained, as Learn SaaS is moving away from custom database tables **
+
 This project contains sample code for creating a custom table in the Blackboard database schema and interacting with that table using Spring annotations and a DAO. By using these tools, you can build database agnostic
 
-###Project at a glance:
+### Project at a glance:
 - Target: Blackboard Learn 9.1 SP 11 minimum
 - Source Release: v1.0
 - Release Date  2015-11-13
 - Author: shurrey
 - Tested on Blackboard Learn 9.1 October 2014 release
 
-###Requirements:
+### Requirements:
 - Java 7
 - Gradle 1.6
 
